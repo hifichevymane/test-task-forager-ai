@@ -1,3 +1,4 @@
+# flake8: noqa: WPS407
 """
 Django settings for music_service project.
 
@@ -13,6 +14,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import sys
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,6 +88,8 @@ WSGI_APPLICATION = 'music_service.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DEFAULT_DB_PORT = 5432
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -93,8 +97,8 @@ DATABASES = {
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
         'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
-        'PORT': os.getenv('POSTGRES_PORT', 5432) 
-    }
+        'PORT': os.getenv('POSTGRES_PORT', DEFAULT_DB_PORT),
+    },
 }
 
 

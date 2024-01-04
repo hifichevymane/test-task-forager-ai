@@ -1,3 +1,4 @@
+# flake8: noqa: RST301
 """
 URL configuration for music_service project.
 
