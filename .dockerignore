@@ -1,0 +1,10 @@
+db.sqlite3
+*/venv
+db.sqlite3
+__pycache__
+.idea
+*.pyc
+*.pyo
+.cache
+Dockerfile
+docker-compose.yml

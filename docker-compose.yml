@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  api:
+    image: test-task-forager-ai
+    container_name: test-task-forager-ai-api
+    tty: true
+    stdin_open: true
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    volumes:
+      - ".:/api"
+      - "./api:/apps"
