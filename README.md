@@ -2,10 +2,26 @@
 
 This is a test task for Junior Python Developer position
 
-## Setup the project
+## Run the project
 
 > [!WARNING]  
-> Set all necessary variables in `.env` (check `.env.example` file)
+> Create `.env` file and set all necessary variables(check `.env.example` file)
+
+### Using `Docker`
+
+1. Build docker image from `Dockerfile`:
+
+   ```bash
+   docker build -t test-task-forager-ai .
+   ```
+
+2. Run `docker-compose.yml`:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Go to the `http://localhost:8000` in the browser
 
 ### Using `Poetry`
 
