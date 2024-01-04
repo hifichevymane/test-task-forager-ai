@@ -83,3 +83,23 @@ This is a test task for Junior Python Developer position
    ```
 
 5. Go to the `http://127.0.0.1:8000` in the browser
+
+## Linting
+
+To check linting run `flake8`:
+
+```bash
+flake8 .
+```
+
+To format code run `black`:
+
+```bash
+black --skip-string-normalization .
+```
+
+To sort imports run `isort`:
+
+```bash
+isort .
+```
