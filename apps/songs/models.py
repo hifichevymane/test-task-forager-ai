@@ -93,7 +93,7 @@ class Album(TimeStampedModel):
 
         String representation of a model instance.
         """
-        return f'{self.name} - {self.author}'  # noqa: WPS305
+        return f'{self.author} - {self.name}'  # noqa: WPS305
 
 
 class Song(TimeStampedModel):
