@@ -1,4 +1,5 @@
-# noqa: D100 F401
+"""`songs` app admin."""
+
 from django.contrib import admin
 from songs.models import Album, Author, MusicLabel, Song
 
@@ -11,7 +12,7 @@ class SongAdmin(admin.ModelAdmin):
     Defines parameters for displaying `Django Admin` panel
     """
 
-    readonly_fields = ('author', 'music_label', 'release_date')
+    readonly_fields: tuple[str] = ('author', 'music_label', 'release_date')
 
 
 admin.site.register(Author)

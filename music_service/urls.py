@@ -17,8 +17,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.urls.resolvers import URLPattern, URLResolver
 
-urlpatterns = [
+urlpatterns: list[URLResolver | URLPattern] = [
     path("admin/", admin.site.urls),
     path("api/v1/", include("core.urls")),
 ]

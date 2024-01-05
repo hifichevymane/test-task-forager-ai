@@ -1,4 +1,6 @@
-from django.db import models  # noqa: D100
+"""`core` app models."""
+
+from django.db import models
 
 
 # Create your models here.
@@ -16,8 +18,8 @@ class TimeStampedModel(models.Model):
         when model instance was updated
     """
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at: models.DateTimeField = models.DateTimeField(auto_now_add=True)
+    updated_at: models.DateTimeField = models.DateTimeField(auto_now=True)
 
     class Meta:  # noqa: WPS306 D106
-        abstract = True
+        abstract: bool = True

@@ -4,6 +4,7 @@ Stores all enums, models from `Songs` app use
 """
 
 from enum import StrEnum, auto
+from typing import Literal
 
 
 class AlbumType(StrEnum):
@@ -18,7 +19,7 @@ class AlbumType(StrEnum):
     COMPILATION = auto()  # noqa: WPS115
 
     @classmethod
-    def choices(cls):
+    def choices(cls) -> list[tuple[str, Literal['ALBUM', 'EP', 'SINGLE', 'COMPILATION']]]:  # noqa: WPS234
         """`choices` classmethod.
 
         Returns `list` of the `AlbumType` enum values
