@@ -1,12 +1,14 @@
-# noqa: D100
+"""`songs` app views."""
+
+from django.db.models.query import QuerySet
 from rest_framework.viewsets import ModelViewSet
 from songs.models import Album, Author, MusicLabel, Song
 from songs.serializers import (
-    AlbumSerializer, 
-    AuthorSerializer, 
-    MusicLabelSerializer, 
-    SongDetailSerializer, 
+    AlbumSerializer,
+    AuthorSerializer,
+    MusicLabelSerializer,
     SongCreateSerializer,
+    SongDetailSerializer,
 )
 
 
@@ -14,31 +16,33 @@ from songs.serializers import (
 class MusicLabelModelViewSet(ModelViewSet):
     """`MusicLabelModelViewSet`."""
 
-    queryset = MusicLabel.objects.all()
-    serializer_class = MusicLabelSerializer
+    queryset: QuerySet[MusicLabel] = MusicLabel.objects.all()
+    serializer_class: type[MusicLabelSerializer] = MusicLabelSerializer
 
 
 class AuthorModelViewSet(ModelViewSet):
     """`AuthorModelViewSet`."""
 
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
+    queryset: QuerySet[Author] = Author.objects.all()
+    serializer_class: type[AuthorSerializer] = AuthorSerializer
 
 
 class AlbumModelViewSet(ModelViewSet):
     """`AlbumModelViewSet`."""
 
-    queryset = Album.objects.all()
-    serializer_class = AlbumSerializer
+    queryset: QuerySet[Album] = Album.objects.all()
+    serializer_class: type[AlbumSerializer] = AlbumSerializer
 
 
 class SongModelViewSet(ModelViewSet):
     """`SongModelViewSet`."""
 
-    queryset = Song.objects.all()
-    serializer_class = SongDetailSerializer
+    queryset: QuerySet[Song] = Song.objects.all()
+    serializer_class: type[SongDetailSerializer] = SongDetailSerializer
 
-    def get_serializer_class(self) -> SongDetailSerializer | SongCreateSerializer:  # noqa: WPS615
+    def get_serializer_class(  # noqa: WPS615
+        self,
+    ) -> SongDetailSerializer | SongCreateSerializer:
         """`get_serializer_class` method.
 
         When request type is `POST` it returns `SongCreateSerializer` instead of `SongDetailSerializer`

@@ -1,4 +1,6 @@
-from datetime import datetime  # noqa: D100
+"""`songs` app models."""
+
+from datetime import datetime
 
 from core.models import TimeStampedModel
 from django.db import models
@@ -17,7 +19,7 @@ class MusicLabel(TimeStampedModel):
         Name of music label
     """
 
-    name = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
+    name: models.CharField = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
 
     def __str__(self) -> str:
         """`__str__` func.
@@ -41,8 +43,8 @@ class Author(TimeStampedModel):
         Author's description
     """
 
-    name = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
-    description = models.TextField()
+    name: models.CharField = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
+    description: models.TextField = models.TextField()
 
     def __str__(self) -> str:
         """`__str__` func.
@@ -65,7 +67,7 @@ class Album(TimeStampedModel):
     author: `models.ForeignKey`
         Author's id(`Author` model)
 
-    release_date: `models.DateTimeField`
+    release_date: `models.DateField`
         The date, when an album was released
 
     album_type: `models.CharField`
@@ -77,16 +79,19 @@ class Album(TimeStampedModel):
         Music label id(`MusicLabel` model)
     """
 
-    name = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    release_date = models.DateTimeField(blank=False, null=False)
-    album_type = models.CharField(
+    name: models.CharField = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
+    author: models.ForeignKey[Author] = models.ForeignKey(Author, on_delete=models.CASCADE)
+    release_date: models.DateField = models.DateField(blank=False, null=False)
+    album_type: models.CharField = models.CharField(
         blank=False,
         null=False,
         default=AlbumType.ALBUM.value,
         choices=AlbumType.choices(),
     )
-    music_label = models.ForeignKey(MusicLabel, on_delete=models.CASCADE)
+    music_label: models.ForeignKey[MusicLabel] = models.ForeignKey(
+        MusicLabel,
+        on_delete=models.CASCADE,
+    )
 
     def __str__(self) -> str:
         """`__str__` func.
@@ -121,8 +126,8 @@ class Song(TimeStampedModel):
         Returns the music label of a song
     """
 
-    name = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    name: models.CharField = models.CharField(max_length=128, blank=False, null=False)  # noqa: WPS432
+    album: models.ForeignKey[Album] = models.ForeignKey(Album, on_delete=models.CASCADE)
 
     @property
     def author(self) -> Author:  # noqa: D102

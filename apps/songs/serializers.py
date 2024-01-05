@@ -1,4 +1,7 @@
-# noqa: D100,D106
+"""`songs` app serializers."""
+
+from typing import Any
+
 from rest_framework import serializers
 from songs.models import Album, Author, MusicLabel, Song
 
@@ -10,8 +13,8 @@ class MusicLabelSerializer(serializers.ModelSerializer):
     """
 
     class Meta:  # noqa: WPS306,D106
-        model = MusicLabel
-        fields = '__all__'
+        model: type[MusicLabel] = MusicLabel
+        fields: str | list[str] = '__all__'
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -21,8 +24,8 @@ class AuthorSerializer(serializers.ModelSerializer):
     """
 
     class Meta:  # noqa: WPS306,D106
-        model = Author
-        fields = '__all__'
+        model: type[Author] = Author
+        fields: str | list[str] = '__all__'
 
 
 class AlbumSerializer(serializers.ModelSerializer):
@@ -32,8 +35,8 @@ class AlbumSerializer(serializers.ModelSerializer):
     """
 
     class Meta:  # noqa: WPS306,D106
-        model = Album
-        fields = '__all__'
+        model: type[Album] = Album
+        fields: str | list[str] = '__all__'
 
 
 class SongCreateSerializer(serializers.ModelSerializer):
@@ -43,8 +46,8 @@ class SongCreateSerializer(serializers.ModelSerializer):
     """
 
     class Meta:  # noqa: WPS306,D106
-        model = Song
-        fields = '__all__'
+        model: type[Song] = Song
+        fields: str | list[str] = '__all__'
 
 
 class SongDetailSerializer(SongCreateSerializer):
@@ -53,7 +56,7 @@ class SongDetailSerializer(SongCreateSerializer):
     Serializer that represents JSON representation of `Song` model.
     """
 
-    author = AuthorSerializer()
-    music_label = MusicLabelSerializer()
-    album = AlbumSerializer()
-    release_date = serializers.ReadOnlyField()
+    author: serializers.ListSerializer | Any | AuthorSerializer = AuthorSerializer()
+    music_label: serializers.ListSerializer | Any | MusicLabelSerializer = MusicLabelSerializer()
+    album: serializers.ListSerializer | Any | AlbumSerializer = AlbumSerializer()
+    release_date: serializers.ReadOnlyField = serializers.ReadOnlyField()

@@ -1,5 +1,7 @@
-# noqa: D100
+"""`songs` app urls."""
+
 from django.urls import include, path
+from django.urls.resolvers import URLPattern, URLResolver
 from rest_framework.routers import SimpleRouter
 from songs.views import AlbumModelViewSet, AuthorModelViewSet, MusicLabelModelViewSet, SongModelViewSet
 
@@ -9,6 +11,6 @@ router.register('albums', AlbumModelViewSet)
 router.register('authors', AuthorModelViewSet)
 router.register('music-labels', MusicLabelModelViewSet)
 
-urlpatterns = [
+urlpatterns: list[URLResolver | URLPattern] = [
     path('', include(router.urls)),
 ]
