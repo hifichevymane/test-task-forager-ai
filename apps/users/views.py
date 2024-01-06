@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.serializers import ListSerializer
 from rest_framework.viewsets import GenericViewSet
 from users.models import User
+from users.permissions import IsAbleToEdit
 from users.serializers import UserSerializer
 
 
@@ -19,6 +20,17 @@ class UserModelViewSet(  # noqa: WPS215
 
     queryset: QuerySet[User] = User.objects.all()
     serializer_class: type[UserSerializer] = UserSerializer
+
+    def get_permissions(self) -> None | list:
+        """`get_permissions` method.
+
+        If request method is `PUT` or `PATCH` method sets `self.permissions_classes`
+        to `tuple` with `IsAbleToEdit` permission class.
+        """
+        if self.action in {'update', 'partial_update'}:
+            self.permission_classes: tuple = (IsAbleToEdit, )
+
+        return super().get_permissions()
 
     @action(detail=False, methods=('GET', ), url_path='unverified-users')
     def unverified_users(self, request: Request) -> Response:
