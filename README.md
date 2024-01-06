@@ -4,15 +4,16 @@ This is a test task for Junior Python Developer position
 
 ## Tech stack
 
-1. `Django`
-2. `Django REST Framework`
-3. `Poetry`
-4. `Docker`
-5. `PostgreSQL`
-6. `djoser`
-7. `isort`
-8. `black`
-9. `wemake-python-styleguide linter`
+1. `Python 3.11>`
+2. `Django`
+3. `Django REST Framework`
+4. `Poetry`
+5. `Docker`
+6. `PostgreSQL`
+7. `djoser`
+8. `isort`
+9. `black`
+10. `wemake-python-styleguide linter`
 
 ## Description
 
