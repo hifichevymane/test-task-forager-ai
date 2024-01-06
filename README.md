@@ -2,6 +2,35 @@
 
 This is a test task for Junior Python Developer position
 
+## Tech stack
+
+1. `Django`
+2. `Django REST Framework`
+3. `Poetry`
+4. `Docker`
+5. `PostgreSQL`
+6. `djoser`
+7. `isort`
+8. `black`
+9. `wemake-python-styleguide linter`
+
+## Description
+
+This is a music service client API. You can create, serve and update `music albums`, `songs`, `artists` and `music labels`.
+Authentication was implemented using `djoser` package with `email verification`, `password reset`, etc.
+
+### Endpoints
+
+1. `admin/` - `Django Admin` panel
+2. `api/v1/` - Health check, Allowed methods - `GET`.
+3. `api/v1/songs/` - `Song` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+4. `api/v1/albums/` - `Album` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+5. `api/v1/authors/` - `Author` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+6. `api/v1/music-labels/` - `MusicLabel` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+7. `api/v1/users/` - `User` model CRUD, Allowed methods - `GET`, `PUT`, `PATCH`. Deleting account is implemented using `djoser` package.
+8. `api/v1/users/unverified-users/` - Get users that are not verified(email is not activated), Allowed methods - `GET`
+9. `api/v1/auth/` - Auth route implemented by `djoser` package. Project uses `JWT` authentication. For more details about this route check [`djoser documentation`](https://djoser.readthedocs.io/en/latest/getting_started.html)
+
 ## Run the project
 
 > [!WARNING]  
