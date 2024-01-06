@@ -28,9 +28,10 @@ Authentication was implemented using `djoser` package with `email verification`,
 4. `api/v1/albums/` - `Album` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
 5. `api/v1/authors/` - `Author` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
 6. `api/v1/music-labels/` - `MusicLabel` model CRUD, Allowed methods - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
-7. `api/v1/users/` - `User` model CRUD, Allowed methods - `GET`, `PUT`, `PATCH`. Deleting account is implemented using `djoser` package.
-8. `api/v1/users/unverified-users/` - Get users that are not verified(email is not activated), Allowed methods - `GET`
-9. `api/v1/auth/` - Auth route implemented by `djoser` package. Project uses `JWT` authentication. For more details about this route check [`djoser documentation`](https://djoser.readthedocs.io/en/latest/getting_started.html)
+7. `api/v1/storage/` - API route for service that takes some value and stores it in local variable, Allowed methods - `GET`, `POST`.
+8. `api/v1/users/` - `User` model CRUD, Allowed methods - `GET`, `PUT`, `PATCH`. Deleting account is implemented using `djoser` package.
+9. `api/v1/users/unverified-users/` - Get users that are not verified(email is not activated), Allowed methods - `GET`
+10. `api/v1/auth/` - Auth route implemented by `djoser` package. Project uses `JWT` authentication. For more details about this route check [`djoser documentation`](https://djoser.readthedocs.io/en/latest/getting_started.html)
 
 ## Run the project
 
